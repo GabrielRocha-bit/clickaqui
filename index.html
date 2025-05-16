@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Para Melany 💜</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background: radial-gradient(circle at top, #8b5cf6, #2e1065);
+      color: white;
+      font-family: 'Segoe UI', sans-serif;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    .popup {
+      position: absolute;
+      background: white;
+      color: black;
+      font-size: 1.2rem;
+      padding: 0.75rem 1.25rem;
+      border-radius: 1rem;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+      animation: fadeIn 0.5s ease-out;
+      pointer-events: none;
+      white-space: nowrap;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    .heart {
+      position: absolute;
+      font-size: 24px;
+      animation: floatUp 2s ease-out forwards;
+      user-select: none;
+      pointer-events: none;
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-100px) scale(1.5);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body class="flex flex-col items-center justify-center text-center min-h-screen p-4">
+
+  <h1 class="text-5xl font-bold mb-4 animate-pulse">🌟 Feliz aniversario cariñito, haz clic en cualquier parte 🌟</h1>
+  <p class="text-xl max-w-2xl">Cada clic es una forma de decirte cuánto te amo ❤️</p>
+
+  <footer class="absolute bottom-4 text-sm opacity-70">
+    Hecho por tu novio Rocha 💌
+  </footer>
+
+  <script>
+    const messages = [
+      "Eres mi persona favorita 💕",
+      "Si pudiera elegir otra vez, te volvería a elegir a ti 💍",
+      "Cada día contigo es una bendición 🌞",
+      "Me haces muy feliz, más de lo que imaginas 🌈",
+      "Tu risa es mi sonido favorito 🎶",
+      "Contigo todo tiene sentido ✨",
+      "Eres mi hogar en el mundo 🌍",
+      "Mi corazón sonríe cuando estás cerca 😍",
+      "Gracias por tanto amor, por tanto todo ❤️",
+      "Tus abrazos curan todo 🌻",
+      "Te amo más de lo que las palabras pueden decir 📖",
+      "Mi lugar favorito siempre será a tu lado 🛋️",
+      "Cada minuto contigo es un tesoro ⏳",
+      "No importa dónde, si estoy contigo, estoy feliz 🌎",
+      "Tú haces que lo simple se sienta mágico 🪄",
+      "Contigo aprendí lo que es el amor verdadero 💞",
+      "Tu existencia ilumina la mía 🌟",
+      "Eres lo más bonito de mi vida 💖",
+      "Nunca dudes de cuánto te amo 💗",    
+      "Melany, eres la mejor psicóloga del mundo 🧠💗"
+    ];
+
+    document.body.addEventListener('click', (e) => {
+      const x = e.clientX;
+      const y = e.clientY;
+
+      // Crear mensaje
+      const msg = messages[Math.floor(Math.random() * messages.length)];
+      const popup = document.createElement('div');
+      popup.className = 'popup';
+      popup.style.left = `${x}px`;
+      popup.style.top = `${y}px`;
+      popup.textContent = msg;
+      document.body.appendChild(popup);
+
+      // Eliminar después de un tiempo
+      setTimeout(() => {
+        popup.remove();
+      }, 2500);
+
+      // Crear corazón
+      const heart = document.createElement('div');
+      heart.className = 'heart';
+      heart.style.left = `${x}px`;
+      heart.style.top = `${y}px`;
+      heart.style.color = ['#ff4d6d', '#ff85a1', '#ffccd5', '#ffb3c1'][Math.floor(Math.random() * 4)];
+      heart.textContent = '❤️';
+      document.body.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 2000);
+    });
+  </script>
+</body>
+</html>
